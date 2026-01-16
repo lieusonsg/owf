@@ -239,8 +239,21 @@ Muốn thay đổi? Gõ /customize bất cứ lúc nào."
 ```
 
 ### 5.2. Lưu vào File (Persistent)
-**Tạo file `.ai-preferences.md` trong thư mục gốc dự án:**
 
+**Hỏi user muốn lưu ở đâu:**
+```
+"💾 Anh muốn lưu settings ở đâu?
+
+1️⃣ **Global** (Recommended) - Dùng cho TẤT CẢ projects
+   → Lưu tại: ~/.ai-preferences.md
+
+2️⃣ **Project này thôi** - Chỉ dùng cho project hiện tại
+   → Lưu tại: ./.ai-preferences.md (thư mục gốc project)
+
+3️⃣ **Cả hai** - Global làm mặc định, project override khi cần"
+```
+
+**Template file `.ai-preferences.md`:**
 ```markdown
 # AI Preferences
 
@@ -262,10 +275,15 @@ Muốn thay đổi? Gõ /customize bất cứ lúc nào."
 - [Rule 2]
 ```
 
+**Thứ tự ưu tiên (Priority):**
+1. Project settings (`./.ai-preferences.md`) → Cao nhất
+2. Global settings (`~/.ai-preferences.md`) → Mặc định
+3. AWF defaults → Nếu không có file nào
+
 **Lưu ý:**
-*   File này nằm trong thư mục gốc → AI đọc được khi bắt đầu session
-*   Commit vào git để team cùng dùng (nếu muốn)
-*   Hoặc thêm vào .gitignore nếu chỉ dùng cá nhân
+*   Global: `~/.ai-preferences.md` trong home folder
+*   Project: `./.ai-preferences.md` trong thư mục gốc project
+*   Commit project settings vào git để team cùng dùng (nếu muốn)
 
 ---
 
@@ -281,12 +299,12 @@ Muốn thay đổi? Gõ /customize bất cứ lúc nào."
 ## 🔗 Áp dụng vào các Workflow khác
 
 **Khi bắt đầu session mới:**
-1. Kiểm tra file `.ai-preferences.md` trong thư mục gốc
-2. Nếu có → Đọc và áp dụng ngay
-3. Nếu chưa có → Dùng settings mặc định
+1. Kiểm tra `./.ai-preferences.md` (project) trước
+2. Nếu không có → Kiểm tra `~/.ai-preferences.md` (global)
+3. Nếu không có cả hai → Dùng AWF defaults
 4. User có thể chạy `/customize` bất cứ lúc nào để thay đổi
 
 **Trong mỗi workflow:**
-- Đọc `.ai-preferences.md` trước khi bắt đầu
+- Đọc preferences theo thứ tự ưu tiên trên
 - Áp dụng tone, persona, detail level theo settings
 - Tuân thủ Custom Rules đã định nghĩa
