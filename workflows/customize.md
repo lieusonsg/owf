@@ -289,9 +289,21 @@ Muốn thay đổi? Gõ /customize bất cứ lúc nào."
 
 ## ⚠️ NEXT STEPS:
 ```
-1️⃣ Settings OK? Quay lại làm việc!
-2️⃣ Muốn thay đổi? Nói em biết setting nào
-3️⃣ Reset về mặc định? Nói "Reset settings"
+"✅ Settings đã lưu! Anh muốn làm gì tiếp?
+
+🚀 **BẮT ĐẦU LÀM VIỆC:**
+1️⃣ /brainstorm - Bắt đầu ý tưởng mới từ đầu
+2️⃣ /next - Tiếp tục project hiện tại
+3️⃣ /plan - Lên kế hoạch cho tính năng mới
+
+🔧 **CHỈNH SETTINGS:**
+4️⃣ Thay đổi 1 setting cụ thể (nói em biết setting nào)
+5️⃣ Reset về mặc định
+6️⃣ Xem lại settings hiện tại
+
+📚 **KHÁC:**
+7️⃣ Xem tất cả commands có sẵn
+8️⃣ Test thử settings mới với 1 task đơn giản"
 ```
 
 ---
