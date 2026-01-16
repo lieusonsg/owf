@@ -104,7 +104,9 @@ Bắt đầu nhé?"
 4️⃣ **Full technical** (Dev)
    - Dùng thuật ngữ chuyên ngành
    - Discuss architecture, patterns
-   - Code review level senior"
+   - Code review level senior
+
+5️⃣ **Custom - Mô tả mức độ anh muốn**"
 ```
 
 ### 3.2. Autonomy Level (Mức độ tự quyết)
@@ -124,7 +126,9 @@ Bắt đầu nhé?"
 3️⃣ **Em tự quyết định hết**
    - Anh chỉ cần nói ý tưởng
    - Em chọn tech, design, approach
-   - Chỉ hỏi khi thực sự cần"
+   - Chỉ hỏi khi thực sự cần
+
+4️⃣ **Custom - Mô tả cách anh muốn**"
 ```
 
 ### 3.3. Output Quality
@@ -142,7 +146,9 @@ Bắt đầu nhé?"
 3️⃣ **Enterprise / Scale**
    - Tests đầy đủ
    - Documentation
-   - Sẵn sàng cho team lớn"
+   - Sẵn sàng cho team lớn
+
+4️⃣ **Custom - Mô tả chất lượng anh cần**"
 ```
 
 ---
@@ -161,7 +167,9 @@ Bắt đầu nhé?"
 2️⃣ **Nhanh, iterate sau**
    - Ship fast, fix later
    - Làm nguyên luồng rồi review
-   - Chấp nhận refactor"
+   - Chấp nhận refactor
+
+3️⃣ **Custom - Mô tả tốc độ anh muốn**"
 ```
 
 ### 4.2. Feedback Style
@@ -178,8 +186,34 @@ Bắt đầu nhé?"
 
 3️⃣ **Chỉ làm theo yêu cầu**
    - Không comment về approach
-   - Anh sai thì anh chịu"
+   - Anh sai thì anh chịu
+
+4️⃣ **Custom - Mô tả cách anh muốn nhận feedback**"
 ```
+
+---
+
+## Giai đoạn 4.5: Additional Settings (Cài đặt bổ sung)
+
+### 4.5.1. Hỏi về yêu cầu đặc biệt
+```
+"📝 Anh có yêu cầu đặc biệt nào khác không?
+
+VD:
+- 'Luôn dùng TypeScript thay vì JavaScript'
+- 'Khi viết code luôn kèm unit test'
+- 'Ưu tiên performance hơn clean code'
+- 'Không bao giờ dùng thư viện XYZ'
+- 'Luôn giải thích bằng ví dụ cụ thể'
+- 'Mỗi lần sửa file nhớ backup trước'
+
+Anh cứ liệt kê, em sẽ nhớ hết!"
+```
+
+### 4.5.2. Ghi nhận Custom Rules
+*   Lưu tất cả yêu cầu đặc biệt vào context
+*   Ưu tiên cao hơn settings mặc định
+*   Nhắc lại khi relevant: "Theo yêu cầu của anh về TypeScript..."
 
 ---
 
@@ -196,6 +230,9 @@ Bắt đầu nhé?"
 🎯 Quality: [Lựa chọn]
 ⏱️ Pace: [Lựa chọn]
 💬 Feedback: [Lựa chọn]
+
+📝 Custom Rules:
+[Liệt kê các yêu cầu đặc biệt nếu có]
 
 Em sẽ nhớ và áp dụng cho toàn bộ dự án!
 Muốn thay đổi? Gõ /customize bất cứ lúc nào."
