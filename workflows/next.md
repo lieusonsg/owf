@@ -45,6 +45,20 @@ Xác định User đang ở giai đoạn nào:
 *   **Đang fix bug:** `session.working_on.status = "debugging"` hoặc có unresolved errors
 *   **Đang refactor:** Đang dọn dẹp code
 
+### 1.4. ⭐ Check Plan Progress (Mới v3.4)
+
+```
+if exists("plans/*/plan.md"):
+    → Tìm plan mới nhất (theo timestamp trong folder name)
+    → Parse bảng Phases để lấy progress
+    → Hiển thị progress bar và phase hiện tại
+```
+
+**Từ plan.md lấy được:**
+- Total phases và completed phases
+- Phase đang in-progress
+- Tasks còn lại trong phase hiện tại
+
 ---
 
 ## Giai đoạn 2: Smart Recommendation (Gợi ý thông minh)
@@ -70,6 +84,32 @@ Xác định User đang ở giai đoạn nào:
    2️⃣ Hoặc `/visualize` nếu muốn xem giao diện trước
 
 📋 **Spec đang có:** [Tên file spec]"
+```
+
+### 2.2.5. ⭐ Nếu CÓ PLAN VỚI PHASES (Mới v3.4):
+```
+"🧭 **TIẾN ĐỘ DỰ ÁN**
+
+📁 Plan: `plans/260117-1430-coffee-shop-orders/`
+
+📊 **Progress:**
+████████░░░░░░░░░░░░ 40% (2/5 phases)
+
+| Phase | Status |
+|-------|--------|
+| 01 Setup | ✅ Done |
+| 02 Database | ✅ Done |
+| 03 Backend | 🟡 In Progress (3/8 tasks) |
+| 04 Frontend | ⬜ Pending |
+| 05 Testing | ⬜ Pending |
+
+📍 **Đang làm:** Phase 03 - Backend API
+   └─ Task: Implement /api/orders endpoint
+
+➡️ **Bước tiếp theo:**
+   1️⃣ Tiếp tục Phase 3? `/code phase-03`
+   2️⃣ Xem chi tiết phase? Em show phase-03-backend.md
+   3️⃣ Lưu progress? `/save-brain`"
 ```
 
 ### 2.3. Nếu ĐANG CODE (có file thay đổi):

@@ -1,4 +1,4 @@
-# 🚀 AWF - Antigravity Workflow Framework v3.3
+# 🚀 AWF - Antigravity Workflow Framework v3.4
 
 **The Operating System for Vibe Coders & AI Engineers.**
 *Hệ điều hành dành cho Vibe Coder và Kỹ sư AI.*
@@ -33,7 +33,7 @@
 
 ---
 
-## ✅ The Solution: AWF 3.3
+## ✅ The Solution: AWF 3.4
 
 **AWF is a suite of 17 Global Workflows for everyone - from beginners to pros.**
 *AWF là bộ 17 lệnh Global cho mọi người - từ người mới đến chuyên gia.*
@@ -237,4 +237,4 @@ AI: "Em tổng hợp lại:
 ---
 
 *Built by Antigravity in Vibe Coding Mode.*
-*AWF v3.3 - For everyone, from beginners to pros.*
+*AWF v3.4 - For everyone, from beginners to pros.*

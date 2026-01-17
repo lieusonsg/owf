@@ -1,4 +1,4 @@
-# 🚀 Antigravity Vibe Coding Suite v3.3 (Ultimate Edition)
+# 🚀 Antigravity Vibe Coding Suite v3.4 (Ultimate Edition)
 
 **Hệ thống Workflow TOÀN DIỆN cho Vibe Coders** - Chỉ cần có ý tưởng, AI lo trọn gói.
 
@@ -89,6 +89,70 @@
 | Changelog | Version history |
 | Business Rules | Quy tắc nghiệp vụ |
 | **Structured Context** | `.brain/brain.json` ⭐ NEW |
+
+---
+
+## 🚀 Auto Workflow - v3.4 (MỚI!)
+
+### Vấn đề v3.3
+- `/plan` chỉ tạo 1 file spec, phải tự chia phases
+- `/code` không tự test, phải gọi `/test` thủ công
+- Mất context khi compact, không auto-save progress
+
+### Giải pháp v3.4
+
+#### 1. `/plan` v2 - Auto Phase Generation
+```
+/plan "Order management"
+    ↓
+[AUTO] Tạo folder: plans/260117-1430-order-management/
+    ↓
+[AUTO] Tạo files:
+├── plan.md (Overview + Progress tracker)
+├── phase-01-setup.md
+├── phase-02-database.md
+├── phase-03-backend.md
+├── phase-04-frontend.md
+└── phase-05-testing.md
+```
+
+#### 2. `/code` v2 - Auto Test Loop
+```
+/code phase-01
+    ↓
+[AUTO] Load tasks từ phase file
+    ↓
+[AUTO] Code từng task
+    ↓
+[AUTO] Chạy test
+    ↓
+├── PASS → Tiếp task sau
+└── FAIL → Fix loop (max 3 lần) → Hỏi user nếu vẫn fail
+    ↓
+[AUTO] Update progress trong plan.md
+    ↓
+[AUTO] Save context vào session.json
+```
+
+#### 3. `/next` v2 - Phase Progress Display
+```
+📊 Progress:
+████████░░░░░░░░░░░░ 40% (2/5 phases)
+
+| Phase | Status |
+|-------|--------|
+| 01 Setup | ✅ Done |
+| 02 Database | 🟡 In Progress |
+| 03 Backend | ⬜ Pending |
+```
+
+#### 4. Auto-Save Progress (Chống mất context)
+```
+Sau mỗi phase/5 tasks:
+→ Update plan.md status
+→ Update session.json
+→ Báo: "📍 Progress đã lưu!"
+```
 
 ---
 
@@ -239,7 +303,7 @@ AI hỏi bằng tiếng Việt:
 
 ---
 
-## 📊 Thống kê hệ thống v3.3
+## 📊 Thống kê hệ thống v3.4
 
 | Workflow | Size | Chất lượng |
 |----------|------|------------|
@@ -272,4 +336,4 @@ AI hỏi bằng tiếng Việt:
 
 ---
 
-*Antigravity Vibe Coding Suite v3.3 - Your dreams, our engineering.*
+*Antigravity Vibe Coding Suite v3.4 - Your dreams, our engineering.*

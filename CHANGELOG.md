@@ -2,6 +2,66 @@
 
 All notable changes to AWF will be documented in this file.
 
+## [3.4.0] - 2026-01-17
+
+### Added - Auto Workflow System
+
+**`/plan` v2 - Auto Phase Generation:**
+- Tự động tạo folder `plans/[timestamp]-[feature]/`
+- Tự động tạo phase files (phase-01-setup.md, phase-02-database.md, etc.)
+- Mỗi phase có TODO checklist, files to modify, test criteria
+- Smart phase detection (3-7 phases tùy complexity)
+- Progress tracking table trong plan.md
+
+**`/code` v2 - Auto Test Loop:**
+- Phase-aware coding: `/code phase-01` để code theo phase
+- **NEW:** `/code all-phases` - Code tuần tự tất cả phases
+- Auto-test sau mỗi task (PRODUCTION level)
+- Fix loop: tự động fix và retest (max 3 lần)
+- **NEW:** Test skip behavior - Ghi nhận tests bị skip, block deploy
+- Auto update progress trong plan.md và session.json
+- Checkpoint save sau mỗi 5 tasks
+
+**`/next` v2 - Phase Progress Display:**
+- Hiển thị progress bar với percentage
+- Bảng status các phases (Done/In Progress/Pending)
+- Gợi ý command để tiếp tục phase hiện tại
+
+**`/deploy` v2 - Pre-Audit & Safety:**
+- **NEW:** Gợi ý chạy `/audit` trước khi deploy
+- **NEW:** Block deploy nếu có tests bị skip
+- Warning trong handover nếu skip audit
+
+**`/recap` v2 - Skipped Tests Reminder:**
+- **NEW:** Hiển thị danh sách tests bị skip
+- Reminder phải fix trước khi deploy
+
+**Auto-Save Progress (Chống mất context):**
+- Tự động save sau mỗi phase hoàn thành
+- Checkpoint save sau mỗi 5 tasks
+- Save trước khi hỏi user input
+- Update session.json với working_on, pending_tasks, skipped_tests
+
+### Changed
+- `/plan` - Thêm giai đoạn 8 (Auto Phase Generation)
+- `/code` - Thêm giai đoạn 4 (Auto Test Loop), giai đoạn 5 (Phase Progress Update), section 0.2.1 (All Phases)
+- `/next` - Thêm section 1.4 (Check Plan Progress) và 2.2.5 (Phase Progress Display)
+- `/deploy` - Thêm giai đoạn 0 (Pre-Audit), section 2.0 (Skipped Tests Check)
+- `/recap` - Thêm skipped tests display
+- `/save-brain` - Chuẩn hóa retry logic 3x
+
+### Schema Updates
+- `session.schema.json` - Added: `current_plan_path`, `current_phase`, `skipped_tests`
+
+### Benefits
+- **Tự động hóa:** Không cần gọi `/test` thủ công
+- **Theo dõi tiến độ:** Biết đang ở phase nào, còn bao nhiêu
+- **Chống mất context:** Auto-save sau mỗi milestone
+- **Dễ resume:** `/recap` + `/next` để biết làm tiếp từ đâu
+- **An toàn deploy:** Block deploy khi có tests skip hoặc chưa audit
+
+---
+
 ## [3.3.0] - 2026-01-17
 
 ### Added - Context Separation & Preferences

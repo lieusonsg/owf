@@ -23,6 +23,14 @@
           "enum": ["planning", "coding", "testing", "debugging", "reviewing"],
           "description": "Task status"
         },
+        "current_plan_path": {
+          "type": "string",
+          "description": "Path to current plan folder (e.g., plans/260117-1430-orders/)"
+        },
+        "current_phase": {
+          "type": "string",
+          "description": "Current phase being worked on (e.g., phase-03)"
+        },
         "files": {
           "type": "array",
           "items": { "type": "string" },
@@ -83,6 +91,19 @@
           "decision": { "type": "string" },
           "reason": { "type": "string" }
         }
+      }
+    },
+    "skipped_tests": {
+      "type": "array",
+      "description": "Tests that were skipped due to fix failures - blocks deploy!",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test": { "type": "string", "description": "Test file name" },
+          "reason": { "type": "string", "description": "Why it was skipped" },
+          "date": { "type": "string", "format": "date-time" }
+        },
+        "required": ["test", "date"]
       }
     }
   }

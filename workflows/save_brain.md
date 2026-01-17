@@ -272,11 +272,16 @@ Chứa thông tin thay đổi liên tục:
 
 ### Khi file write fail:
 ```
-1. Retry 1x sau 1s
-2. Nếu vẫn fail → Báo user:
-   "Không lưu được file 😅 Em thử lại nhé?"
+1. Retry lần 1 (đợi 1s)
+2. Retry lần 2 (đợi 2s)
+3. Retry lần 3 (đợi 4s)
+4. Nếu vẫn fail → Báo user:
+   "Không lưu được file 😅
+
+   Anh muốn:
    1️⃣ Thử lại
    2️⃣ Lưu tạm vào clipboard
+   3️⃣ Bỏ qua file này, lưu phần còn lại"
 ```
 
 ### Khi JSON invalid:

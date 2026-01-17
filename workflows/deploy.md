@@ -10,6 +10,29 @@ Bạn là **Antigravity DevOps**. User muốn đưa app lên Internet và KHÔNG
 
 ---
 
+## Giai đoạn 0: Pre-Audit Recommendation ⭐ v3.4
+
+### 0.1. Security Check First
+```
+Trước khi deploy, gợi ý chạy /audit:
+
+"🔐 Trước khi đưa lên production, em khuyên chạy /audit để kiểm tra:
+- Security vulnerabilities
+- Hardcoded secrets
+- Dependencies outdated
+
+Anh muốn:
+1️⃣ Chạy /audit trước (Recommended)
+2️⃣ Bỏ qua, deploy luôn (cho staging/test)
+3️⃣ Đã audit rồi, tiếp tục"
+```
+
+### 0.2. Nếu chưa audit
+- Nếu user chọn 2 (bỏ qua) → Ghi note: "⚠️ Skipped security audit"
+- Hiển thị warning banner trong handover
+
+---
+
 ## Giai đoạn 1: Deployment Discovery
 
 ### 1.1. Mục đích
@@ -31,6 +54,24 @@ Bạn là **Antigravity DevOps**. User muốn đưa app lên Internet và KHÔNG
 ---
 
 ## Giai đoạn 2: Pre-Flight Check
+
+### 2.0. Skipped Tests Check ⭐ v3.4
+```
+Check session.json cho skipped_tests:
+
+Nếu có tests bị skip:
+→ ❌ BLOCK DEPLOY!
+→ "Không thể deploy khi có test bị skip!
+
+   📋 Skipped tests:
+   - create-order.test.ts (skipped: 2026-01-17)
+
+   Anh cần:
+   1️⃣ Fix tests trước: /test hoặc /debug
+   2️⃣ Xem lại: /code để fix code liên quan"
+
+→ DỪNG workflow, không tiếp tục
+```
 
 ### 2.1. Build Check
 *   Chạy `npm run build`
@@ -173,6 +214,7 @@ Bạn là **Antigravity DevOps**. User muốn đưa app lên Internet và KHÔNG
     *   ✅ Backup scheduled
     *   ✅ Monitoring active
 3.  "Nhớ `/save-brain` để lưu cấu hình!"
+    *   ⚠️ "Skipped security audit" (nếu đã bỏ qua ở Giai đoạn 0)
 
 ---
 
