@@ -155,14 +155,17 @@ if (-not (Test-Path $GeminiMd)) {
     Set-Content -Path $GeminiMd -Value $AwfInstructions -Encoding UTF8
     Write-Host "✅ Đã tạo Global Rules (GEMINI.md)" -ForegroundColor Green
 } else {
-    # Always update to latest version
+    # Always update to latest version - just overwrite AWF section
     $content = Get-Content $GeminiMd -Raw -ErrorAction SilentlyContinue
     if ($null -eq $content) { $content = "" }
-    if ($content -and $content.Contains("AWF - Antigravity Workflow Framework")) {
-        # Remove old AWF section
-        $content = $content -replace "(?s)# AWF - Antigravity Workflow Framework.*?(?=# [^A]|$)", ""
+
+    # Simple check and replace: remove everything from AWF header to end of file
+    $awfMarker = "# AWF - Antigravity Workflow Framework"
+    $markerIndex = $content.IndexOf($awfMarker)
+    if ($markerIndex -ge 0) {
+        $content = $content.Substring(0, $markerIndex)
     }
-    $content = $content + $AwfInstructions
+    $content = $content.TrimEnd() + "`n" + $AwfInstructions
     Set-Content -Path $GeminiMd -Value $content -Encoding UTF8
     Write-Host "✅ Đã cập nhật Global Rules (GEMINI.md)" -ForegroundColor Green
 }
