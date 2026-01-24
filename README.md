@@ -6,7 +6,7 @@
 *Turn your ideas into apps without coding knowledge. AI handles everything.*
 *Biến ý tưởng thành App mà không cần biết code. AI lo trọn gói.*
 
-**v4.0:** 5 Hidden Skills · 12 Non-Tech Mode Workflows · Error Translation · Flowchart Explanations
+**v4.0:** 4 Hidden Skills · 12 Non-Tech Mode Workflows · Error Translation · Flowchart Explanations
 
 [![Website](https://img.shields.io/badge/Website-Live_Demo-cyan?style=for-the-badge)](https://awfweb.pages.dev/)
 [![Install Global](https://img.shields.io/badge/Install-Global-blue?style=for-the-badge)](#-installation-global)
@@ -42,13 +42,12 @@
 
 **What's New in v4.0:**
 
-🎯 **5 Hidden Skills** (tự động, user không cần biết):
+🎯 **4 Hidden Skills** (tự động, user không cần biết):
 | Skill | Chức năng |
 |-------|-----------|
 | awf-session-restore | Nhớ context giữa các session |
 | awf-adaptive-language | Điều chỉnh ngôn ngữ theo trình độ |
 | awf-error-translator | Dịch 50+ lỗi sang ngôn ngữ dễ hiểu |
-| awf-onboarding | Hướng dẫn user mới |
 | awf-context-help | Trợ giúp thông minh theo context |
 
 📝 **12 Workflows với Non-Tech Mode:**
@@ -307,4 +306,4 @@ echo '{"technical":{"technical_level":"newbie"}}' > .brain/preferences.json
 
 *Built by Antigravity in Vibe Coding Mode.*
 *AWF v4.0 - For everyone, from beginners to pros.*
-*5 Hidden Skills · 12 Non-Tech Workflows · 16 Slash Commands + 2 Utilities*
+*4 Hidden Skills · 12 Non-Tech Workflows · 16 Slash Commands + 2 Utilities*

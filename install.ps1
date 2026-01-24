@@ -24,7 +24,6 @@ $AwfSkills = @(
     "awf-session-restore",
     "awf-adaptive-language",
     "awf-error-translator",
-    "awf-onboarding",
     "awf-context-help"
 )
 
