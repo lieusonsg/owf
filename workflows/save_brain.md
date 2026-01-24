@@ -55,6 +55,38 @@ if technical_level == "newbie":
 💾 Đã lưu! Lần sau gõ /recap để em nhớ lại.
 ```
 
+### Giải thích database_schema cho newbie:
+
+```
+Khi lưu cấu trúc database, KHÔNG chỉ lưu JSON technical:
+{
+  "tables": [{"name": "users", "columns": ["id", "email"]}]
+}
+
+MÀ PHẢI kèm mô tả đời thường trong brain.json:
+
+"database_schema": {
+  "summary": "App lưu: thông tin user, đơn hàng, sản phẩm",
+  "tables": [...],
+  "relationships_explained": "1 user có nhiều đơn hàng, 1 đơn hàng có nhiều sản phẩm"
+}
+```
+
+### Giải thích API endpoints cho newbie:
+
+```
+KHÔNG chỉ lưu:
+"api_endpoints": [{"method": "POST", "path": "/api/auth/login"}]
+
+MÀ PHẢI kèm mô tả:
+"api_endpoints": [
+  {
+    "path": "/api/auth/login",
+    "explained": "Đăng nhập - gửi email + mật khẩu, nhận lại token"
+  }
+]
+```
+
 ---
 
 ## Giai đoạn 1: Change Analysis
