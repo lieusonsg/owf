@@ -3,7 +3,7 @@
 > **Framework mở rộng cho Antigravity Agent.**
 > Biến AI của bạn thành một đội ngũ chuyên nghiệp (PM, Designer, Coder) với quy trình làm việc chuẩn.
 
-[![Version](https://img.shields.io/badge/version-4.0.2-blue.svg)](https://github.com/TUAN130294/awf)
+[![Version](https://img.shields.io/badge/version-4.1.0-blue.svg)](https://github.com/TUAN130294/awf)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-awfweb.pages.dev-8b5cf6.svg)](https://awfweb.pages.dev/)
 
@@ -100,7 +100,13 @@ Mở file `docs/index.html` để xem hướng dẫn đầy đủ với giao di�
 
 ## 📜 Changelog
 
-### v4.0.1 (Latest)
+### v4.1.0 (Latest)
+- 🆕 **Eternal Context System** - Auto-save để không bao giờ mất context
+- 🆕 Skill `awf-auto-save` với trigger thông minh
+- 🆕 3-Tier lazy loading cho session restore
+- ✅ Session schema v2.0 với summary & checkpoints
+
+### v4.0.1
 - ✅ Fix lỗi install script trên Windows
 - ✅ Cải thiện Session Restore skill
 - ✅ Thêm `/awf-update` workflow

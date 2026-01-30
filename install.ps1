@@ -27,13 +27,14 @@ $Templates = @(
     "brain.example.json", "session.example.json", "preferences.example.json"
 )
 
-# AWF Skills (v4.0.2+)
+# AWF Skills (v4.1+)
 $AwfSkills = @(
     "awf-session-restore",
+    "awf-auto-save",          # NEW: Eternal Context System - auto-save triggers
     "awf-adaptive-language",
     "awf-error-translator",
     "awf-context-help",
-    "awf-onboarding"          # NEW: First-time user onboarding
+    "awf-onboarding"
 )
 
 # Detect Antigravity Global Path
@@ -185,7 +186,8 @@ Skills là helper ẩn, tự động kích hoạt khi cần. User KHÔNG cần g
 
 | Skill | Trigger | Chức năng |
 |-------|---------|-----------|
-| awf-session-restore | Đầu mỗi session | Tự động khôi phục context |
+| awf-session-restore | Đầu mỗi session | Tự động khôi phục context (lazy loading) |
+| awf-auto-save | Workflow end, user leaving, decisions | Eternal Context - auto-save để không mất data |
 | awf-adaptive-language | Đầu mỗi session | Điều chỉnh ngôn ngữ theo trình độ user |
 | awf-error-translator | Khi có lỗi | Dịch lỗi kỹ thuật sang tiếng đời thường |
 | awf-onboarding | /init lần đầu | Hướng dẫn user mới |
