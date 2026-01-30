@@ -3,12 +3,20 @@
 
 $RepoBase = "https://raw.githubusercontent.com/TUAN130294/awf/main"
 $RepoUrl = "$RepoBase/workflows"
+# Full workflow list (v4.0.2) - Ordered by flow
 $Workflows = @(
-    "plan.md", "code.md", "visualize.md", "deploy.md",
-    "debug.md", "refactor.md", "test.md", "run.md",
-    "init.md", "recap.md", "rollback.md", "save_brain.md",
-    "audit.md", "cloudflare-tunnel.md", "awf-update.md",
-    "brainstorm.md", "next.md", "customize.md", "README.md"
+    # Core Flow: init → brainstorm → plan → design → visualize → code → run
+    "init.md", "brainstorm.md", "plan.md", "design.md",
+    "visualize.md", "code.md", "run.md",
+    # Quality: debug → test → audit
+    "debug.md", "test.md", "audit.md",
+    # Deploy & Maintain
+    "deploy.md", "refactor.md", "rollback.md",
+    # Support workflows
+    "next.md", "recap.md", "help.md", "customize.md",
+    "save_brain.md", "review.md",
+    # System
+    "awf-update.md", "cloudflare-tunnel.md", "README.md"
 )
 
 # Schemas and Templates (v3.3+)
@@ -19,12 +27,13 @@ $Templates = @(
     "brain.example.json", "session.example.json", "preferences.example.json"
 )
 
-# AWF Skills (v4.0+)
+# AWF Skills (v4.0.2+)
 $AwfSkills = @(
     "awf-session-restore",
     "awf-adaptive-language",
     "awf-error-translator",
-    "awf-context-help"
+    "awf-context-help",
+    "awf-onboarding"          # NEW: First-time user onboarding
 )
 
 # Detect Antigravity Global Path
@@ -138,27 +147,33 @@ $AwfInstructions = @"
 Khi user gõ các lệnh bắt đầu bằng ``/`` dưới đây, đây là AWF WORKFLOW COMMANDS (không phải file path).
 Bạn PHẢI đọc file workflow tương ứng và thực hiện theo hướng dẫn trong đó.
 
-## Command Mapping (QUAN TRỌNG):
+## Command Mapping (v4.0.2 - Full Flow):
 | Command | Workflow File | Mô tả |
 |---------|--------------|-------|
-| ``/brainstorm`` | ~/.gemini/antigravity/global_workflows/brainstorm.md | 💡 Bàn ý tưởng, research thị trường |
-| ``/plan`` | ~/.gemini/antigravity/global_workflows/plan.md | Thiết kế tính năng |
-| ``/code`` | ~/.gemini/antigravity/global_workflows/code.md | Viết code an toàn |
-| ``/visualize`` | ~/.gemini/antigravity/global_workflows/visualize.md | Tạo UI/UX |
-| ``/debug`` | ~/.gemini/antigravity/global_workflows/debug.md | Sửa lỗi sâu |
-| ``/test`` | ~/.gemini/antigravity/global_workflows/test.md | Kiểm thử |
-| ``/run`` | ~/.gemini/antigravity/global_workflows/run.md | Chạy ứng dụng |
-| ``/deploy`` | ~/.gemini/antigravity/global_workflows/deploy.md | Deploy production |
-| ``/init`` | ~/.gemini/antigravity/global_workflows/init.md | Khởi tạo dự án |
-| ``/recap`` | ~/.gemini/antigravity/global_workflows/recap.md | Khôi phục ngữ cảnh |
-| ``/next`` | ~/.gemini/antigravity/global_workflows/next.md | Gợi ý bước tiếp theo |
-| ``/customize`` | ~/.gemini/antigravity/global_workflows/customize.md | ⚙️ Cá nhân hóa AI |
-| ``/save-brain`` | ~/.gemini/antigravity/global_workflows/save_brain.md | Lưu kiến thức |
-| ``/audit`` | ~/.gemini/antigravity/global_workflows/audit.md | Kiểm tra bảo mật |
-| ``/refactor`` | ~/.gemini/antigravity/global_workflows/refactor.md | Tái cấu trúc code |
-| ``/rollback`` | ~/.gemini/antigravity/global_workflows/rollback.md | Rollback deployment |
-| ``/cloudflare-tunnel`` | ~/.gemini/antigravity/global_workflows/cloudflare-tunnel.md | Quản lý tunnel |
-| ``/awf-update`` | ~/.gemini/antigravity/global_workflows/awf-update.md | Cập nhật AWF |
+| ``/init`` | init.md | ✨ Khởi tạo dự án mới |
+| ``/brainstorm`` | brainstorm.md | 💡 Bàn ý tưởng, research |
+| ``/plan`` | plan.md | 📋 Lên kế hoạch tính năng |
+| ``/design`` | design.md | 🎨 Thiết kế kỹ thuật (DB, API, Flow) |
+| ``/visualize`` | visualize.md | 🖼️ Thiết kế UI/UX mockup |
+| ``/code`` | code.md | 💻 Viết code |
+| ``/run`` | run.md | ▶️ Chạy ứng dụng |
+| ``/debug`` | debug.md | 🐛 Sửa lỗi |
+| ``/test`` | test.md | 🧪 Kiểm thử |
+| ``/audit`` | audit.md | 🔒 Kiểm tra bảo mật |
+| ``/deploy`` | deploy.md | 🚀 Deploy production |
+| ``/next`` | next.md | ➡️ Gợi ý bước tiếp theo |
+| ``/recap`` | recap.md | 📖 Khôi phục ngữ cảnh |
+| ``/help`` | help.md | ❓ Trợ giúp & Hướng dẫn |
+| ``/customize`` | customize.md | ⚙️ Cá nhân hóa AI |
+| ``/refactor`` | refactor.md | 🔧 Tái cấu trúc code |
+| ``/review`` | review.md | 👀 Review code |
+| ``/save-brain`` | save_brain.md | 🧠 Lưu kiến thức |
+| ``/rollback`` | rollback.md | ⏪ Rollback deployment |
+| ``/awf-update`` | awf-update.md | 📦 Cập nhật AWF |
+| ``/cloudflare-tunnel`` | cloudflare-tunnel.md | 🌐 Quản lý tunnel |
+
+## Flow Chuẩn (v4.0.2):
+``/init`` → ``/plan`` → ``/design`` → ``/code`` → ``/run`` → ``/test`` → ``/deploy``
 
 ## Resource Locations (v4.0+):
 - Schemas: ~/.gemini/antigravity/schemas/
