@@ -1,87 +1,81 @@
 ---
-description: Update AWF to latest version
+description: Cập nhật AWF lên phiên bản mới nhất
 ---
 
-# WORKFLOW: /awf-update - The Updater
+# WORKFLOW: /awf-update
 
-You are the **AWF Update Manager**. Your job is to check for updates and help the user upgrade to the latest version.
+Bạn là **AWF Update Manager**. Kiểm tra và cập nhật AWF nhanh gọn.
 
-## Stage 1: Check Current Version
+**NGÔN NGỮ: Luôn trả lời bằng tiếng Việt.**
 
-1. Read the installed version:
-   ```bash
-   cat ~/.gemini/awf_version 2>/dev/null || echo "Unknown"
-   ```
+## Stage 1: Kiểm tra phiên bản (NHANH)
 
-2. Check latest version from GitHub:
-   ```bash
-   curl -s https://raw.githubusercontent.com/TUAN130294/awf/main/VERSION
-   ```
+Đọc VERSION file local và remote CÙNG LÚC:
 
-3. Compare versions and report:
-
-```
-📦 **AWF VERSION CHECK**
-
-Current version: [installed version]
-Latest version:  [github version]
-
-Status: [UP TO DATE / UPDATE AVAILABLE]
+**Windows:**
+```powershell
+$local = Get-Content "$env:USERPROFILE\.gemini\awf_version" -ErrorAction SilentlyContinue
+$remote = (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/TUAN130294/awf/main/VERSION" -UseBasicParsing).Content.Trim()
+Write-Host "LOCAL: $local"
+Write-Host "REMOTE: $remote"
 ```
 
-## Stage 2: Show Changelog (if update available)
-
-If there's a new version, fetch and display the changelog:
+**Mac/Linux:**
 ```bash
-curl -s https://raw.githubusercontent.com/TUAN130294/awf/main/CHANGELOG.md | head -50
+echo "LOCAL: $(cat ~/.gemini/awf_version 2>/dev/null || echo 'Chưa cài')"
+echo "REMOTE: $(curl -s https://raw.githubusercontent.com/TUAN130294/awf/main/VERSION)"
 ```
 
-Show what's new in a friendly format.
-
-## Stage 3: Update Options
-
-Present options to the user:
+## Stage 2: Báo cáo kết quả
 
 ```
-🔄 **UPDATE OPTIONS**
+📦 **KIỂM TRA PHIÊN BẢN AWF**
 
-1️⃣ Update now (recommended)
-2️⃣ Skip this update
-3️⃣ View full changelog
+Đang dùng: [local version]
+Mới nhất:  [remote version]
+
+[Nếu cùng version] ✅ Bạn đang dùng bản mới nhất!
+[Nếu khác version] ⬆️ Có bản cập nhật mới!
 ```
 
-## Stage 4: Perform Update (if user chooses option 1)
+## Stage 3: Menu cập nhật
 
-### For Mac/Linux:
+Nếu có bản mới, hỏi user:
+
+```
+🔄 **TÙY CHỌN**
+
+1️⃣ Cập nhật ngay
+2️⃣ Bỏ qua
+```
+
+## Stage 4: Thực hiện cập nhật
+
+Khi user chọn cập nhật:
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/TUAN130294/awf/main/install.ps1 | iex
+```
+
+**Mac/Linux:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/TUAN130294/awf/main/install.sh | sh
 ```
 
-### For Windows (PowerShell):
-```powershell
-iex "& { $(irm https://raw.githubusercontent.com/TUAN130294/awf/main/install.ps1) }"
-```
-
-## Stage 5: Verify Update
-
-After update completes:
-1. Check new version is installed
-2. Confirm success to user
+## Stage 5: Xác nhận hoàn tất
 
 ```
-✅ **UPDATE COMPLETE**
+✅ **CẬP NHẬT XONG**
 
-AWF has been updated to version [new version].
+AWF đã được nâng cấp lên v[version].
 
-What's new:
-- [Key changes from changelog]
-
-👉 Restart your IDE to apply changes.
+👉 Thử /recap để kiểm tra.
 ```
 
-## NEXT STEPS:
-```
-1️⃣ Test a workflow? Try /recap
-2️⃣ View all commands? /help
-3️⃣ Start new project? /init
-```
+## CHANGELOG v4.1.0
+
+- 🆕 **Eternal Context System** - Auto-save context
+- 🆕 Skill `awf-auto-save`
+- 🆕 Lazy loading 3 cấp độ cho /recap
+- ✅ Session schema v2.0
